@@ -1,0 +1,17 @@
+
+features
+
+- vec3 -> quat
+- quat -> vec3
+- quat algebra:
+  - unary
+    quat conjugate
+    quat norm
+    quat inverse
+    quat isPure (scalar non-zero)
+
+  - binary
+    quat + qaut
+    quat * quat http://en.wikipedia.org/wiki/Quaternion#Hamilton_product
+
+

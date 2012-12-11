@@ -1,0 +1,35 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Mocha Spec Runner</title>
+  <link rel="stylesheet" href="lib/mocha/mocha.css">
+</head>
+<body>
+  <div id="mocha"></div>
+  <script src="lib/mocha/mocha.js"></script>
+  <script>mocha.setup('bdd')</script>
+
+  <!-- assertion framework -->
+
+  <script src="lib/chai.js"></script>
+
+
+  <script>expect = chai.expect</script>
+  <script>assert = chai.assert</script>
+
+  <!-- sources... -->
+  <script src="../app/scripts/vendor/jquery.min.js"></script>
+  <script src="../app/scripts/quat.js" ></script>
+
+  <!-- specs.. -->
+  <script src="spec/quat-test.js" ></script>
+  <script>
+
+  </script>
+
+  <!-- trigger the mocha runner -->
+  <script src="runner/mocha.js"></script>
+
+</body>
+</html>
