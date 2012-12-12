@@ -1,4 +1,9 @@
   (function() {
+
+    assert.almostEquals = function(a,b,max_delta) {
+      return assert.isTrue(Math.abs(a-b) <= max_delta);
+    }
+
     describe('Quat.js - basic operations', function() {
       describe('constructor', function() {
         it('should init a,b,c,d to 0' , function () {
@@ -194,5 +199,23 @@
         });
       });
 
+      describe('rotation', function() {
+        it('should rotate', function() {
+          // input vector
+          var v = [1,0,0];
+
+          // define an axis of rotation ( as a unit vector) ..
+          var u = [0,0,1];
+          // .. and the angle of rotation
+          var a = Math.PI/2;
+
+          // perform quaternion rotation
+          var v2 = q_rotate(v, u, a);
+
+          assert.almostEquals(v2[0], 0, 1e-10);
+          assert.almostEquals(v2[1], 1, 1e-10);
+          assert.almostEquals(v2[2], 0, 1e-10);
+        });
+      });
     });
   })();

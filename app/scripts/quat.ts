@@ -5,7 +5,7 @@ class Quat {
     c = 0;
     d = 0;
 
-    constructor(a: Array);
+    constructor(a: number[] );
     constructor(a: number, b: number, c: number, d: number);
     constructor(a: any, b?: number, c?: number, d?: number) {
       if ($.isArray(a)) // TODO: do not depend on jQuery
@@ -41,21 +41,21 @@ class Quat {
       throw new Error("Either specify no arguments, 4 numbers or 1 vector.");
     }
 
-    conjugate() {
+    conjugate() : Quat {
       return new Quat(this.a, -this.b, -this.c, -this.d);
     }
 
-    norm() {
+    norm() : number {
       return Math.sqrt(this.a*this.a + this.b*this.b + this.c*this.c + this.d*this.d);
     }
 
-    add(q: Quat) {
+    add(q: Quat) : Quat {
       return new Quat(this.a + q.a, this.b + q.b, this.c + q.c, this.d + q.d);
     }
 
     mul(q: number); // scalar multiplication
     mul(q: Quat); // Hamilton product
-    mul(q: any) {
+    mul(q: any) : Quat {
       var p = this;
 
       if (typeof q == 'number')
@@ -68,14 +68,14 @@ class Quat {
       return new Quat(a,b,c,d);
     }
 
-    inverse() {
+    inverse() : Quat {
       var p = this;
       var n = p.norm();
       var n2 = n*n;
       return new Quat( p.a/n2, -p.b/n2, -p.c/n2, -p.d/n2 );
     }
 
-    vector() {
+    vector() : number[] {
       var p = this;
       return [p.b, p.c, p.d];
     }
