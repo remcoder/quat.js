@@ -1,1 +1,13 @@
 /* Will be compiled down to a single stylesheet with your sass files */
+
+body {
+    background-color: black;
+    margin: 0;
+
+}
+
+canvas {
+    outline: 1px solid lime;
+    display: block;
+    margin: auto;
+}
